@@ -1,4 +1,5 @@
 const POKESTATS = 'POKESTATS';
+import pokemon from './data.js';
 import { findByUnderscoreId } from './utils.js';
 /*
 const pokeStats = [
@@ -29,11 +30,16 @@ export function incrementSeen(_id) {
     const stats = getPokeStats();
 
     // check to see if i've seen this before
+    // GO LOOK IN THE CARTS
     const poke = findByUnderscoreId(stats, _id);
 
     // if not initialize a new object
     if (!poke) {
+        // SEARCH THROUGH ORIGINAL POKE DATA -- where the name and other data lives
+        const dataPokemon = findByUnderscoreId(pokemon, _id);
+
         const newStat = {
+            name: dataPokemon.pokebase,
             _id: _id,
             seen: 1,
             caught: 0,
