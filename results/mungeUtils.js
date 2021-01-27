@@ -1,16 +1,11 @@
 // target shape: [4, 6, 2, 3]
 export function makeSeenArray(arrayOfObjects) {
-    // we make an empty array
-    const seenArray = [];
+    // const newArray = arrayOfObjects.map((someObject) => {
+    //     return someObject.seen;
+    // });
+    const newArray = arrayOfObjects.map(someObject => someObject.seen);
 
-    // we loop through the argument array
-    for (let item of arrayOfObjects) {
-        // and push every 'seen' into our new array
-        seenArray.push(item.seen);
-    }
-
-    // then return our new array, full of 'seen's
-    return seenArray;
+    return newArray;
 }
 
 export function makeCaughtArray(arrayOfObjects) {
@@ -30,16 +25,10 @@ export function makeCaughtArray(arrayOfObjects) {
 
 // target shape: ['char', 'pika']
 export function makeLabelsArray(arrayOfObjects) {
-
-    // we make an empty array
-    const nameArray = [];
-
-    // we loop through the argument array
-    for (let item of arrayOfObjects) {
-        // and push every 'name' into our new array
-        nameArray.push(item.name);
-    }
-
-    // then return our new array, full of 'name's
-    return nameArray;
+    return arrayOfObjects.map((someObject) => {
+        return someObject.name;
+    });
 }
+
+// weird refactor
+// export const makeLabelsArray = arrayOfObjects => arrayOfObjects.map(({ name }) => name);
